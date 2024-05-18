@@ -38,8 +38,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Author:**
 - Immanuel Eshun Quansah
 **Contacts**
-  Email: immanueleshun9@gmail.com
-  Whatsapp: +233592558160
+  - Email: immanueleshun9@gmail.com
+  - Whatsapp: +233592558160
   
 **Acknowledgment:**
 - This project is developed independently as a personal endeavor to gain industry experience.
