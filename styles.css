@@ -1,0 +1,385 @@
+/* Base font size and body styles */
+body {
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background-color: #1f05ae;
+    margin: 0; /* Remove default margin */
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.2rem; /* Reduced font size */
+}
+
+h4 {
+    font-size: 1rem; /* Reduced font size */
+}
+
+/* Paragraph styles */
+p {
+    font-size: 1rem;
+}
+
+/* Card styles */
+.profile-card, .courses-card, .stats-card, .links-card {
+    margin-bottom: 50px;
+    border-radius: 10px; /* Adjusted border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added box shadow */
+}
+
+.profile-card {
+    background-color: #ffc400;
+    color: #1f05ae;
+    border-radius: 5%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Profile Picture */
+.profile-pic {
+    border-radius: 20%;
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Student Name and ID styles */
+#student-name {
+    margin-top: 10px;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+#student-id {
+    margin-bottom: 10px;
+}
+
+/* Card Header styles */
+.card-header {
+    background-color: #ffc400;
+    color: white;
+    padding: 10px; /* Reduced padding */
+}
+
+img {
+    border-radius: 50%; /* This creates a circular shape */
+    width: 20%; /* Adjust the width as needed */
+    max-width: 100px; /* Set a maximum width if necessary */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.card-header h4, .card-header button {
+    margin: 0;
+}
+
+/* Link styles */
+.list-group-item a {
+    text-decoration: none;
+    color: #1f05ae;
+}
+
+/* Button styles */
+button {
+    margin-right: 10px;
+    font-size: 16px; /* Reduced font size */
+}
+
+/* Arrow button styles */
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    color: #126ee0;
+    font-size: 20px; /* Reduced font size */
+    cursor: pointer;
+}
+
+/* Arrow icon styles */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: #1f05ae;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon for active state */
+.arrow-button.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Header styles */
+header {
+    background: #ffc400;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Adjusted border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow */
+}
+
+/* Header Image styles */
+.header-img {
+    border-radius: 50%;
+    width: 80px; /* Reduced width */
+    height: 80px; /* Reduced height */
+}
+
+/* Navbar title styles */
+.navbar-title {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+
+/* Navbar styles */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: auto;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
+}
+
+/* Table styles */
+.table {
+    width: 100%; /* Full width */
+    margin-bottom: 0; /* Remove bottom margin */
+    border-collapse: collapse;
+}
+
+/* Table header styles */
+.table thead th {
+    padding: 8px; /* Adjusted padding */
+    font-size: 1rem; /* Adjusted font size */
+    text-align: left; /* Left-align header text */
+    border-bottom: 2px solid #dee2e6; /* Added bottom border */
+}
+
+/* Table cell styles */
+.table th, .table td {
+    padding: 8px; /* Adjusted padding */
+    vertical-align: middle; /* Center-align content vertically */
+    border-top: 1px solid #dee2e6; /* Added top border */
+}
+
+/* Media queries for smaller screens */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .navbar-title {
+        font-size: 1rem;
+    }
+
+    button {
+        margin-right: 10px;
+        width: 10vw;
+        font-size: 2vw;
+    }
+
+    .header-img {
+        width: 60px; /* Reduced width */
+        height: 60px; /* Reduced height */
+    }
+
+    /* Arrow button styles */
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    color: #126ee0;
+    font-size: 20px; /* Reduced font size */
+    cursor: pointer;
+}
+
+/* Arrow icon styles */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: #1f05ae;
+    transition: transform 0.3s ease;
+}
+}
+
+/* Media queries for medium tablets (9 to 11 inches) */
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+
+    .profile-card,  .stats-card, .links-card {
+        margin-bottom: 20px;
+    }
+
+    .courses-card{
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+
+    /* Arrow button styles */
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    color: #126ee0;
+    font-size: 20px; /* Reduced font size */
+    cursor: pointer;
+}
+
+/* Arrow icon styles */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: #1f05ae;
+    transition: transform 0.3s ease;
+}
+}
+
+/* Media queries for large tablets (12 inches and above) */
+@media screen and (min-width: 1201px) {
+    html {
+        font-size: 20px;
+    }
+
+    .profile-card, .courses-card, .stats-card, .links-card {
+        margin-bottom: 25px;
+    }
+
+    button {
+        font-size: 20px;
+    }
+
+    /* Arrow button styles */
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    color: #126ee0;
+    font-size: 15px; /* Reduced font size */
+    cursor: pointer;
+}
+
+/* Arrow icon styles */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: #1f05ae;
+    transition: transform 0.3s ease;
+}
+}
+
+/* Additional styles for screens with a minimum width of 584px */
+@media screen and (min-width: 584px) {
+    button {
+        margin-right: 10px;
+        width: 10vw;
+        font-size: 2vw;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    .header-img {
+        width: 60px; /* Reduced width */
+        height: 60px; /* Reduced height */
+    }
+
+    /* Arrow button styles */
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    color: #126ee0;
+    font-size: 15px; /* Reduced font size */
+    cursor: pointer;
+}
+
+/* Arrow icon styles */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: #1f05ae;
+    transition: transform 0.3s ease;
+}
+}
+
+/* Media queries for screens with a maximum width of 400px */
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 12px;
+    }
+
+    .navbar-title {
+        font-size: 0.8rem;
+    }
+
+    button {
+        margin-right: 10px;
+        width: 10vw;
+        font-size: 2vw;
+    }
+
+    .header-img {
+        width: 60px; /* Reduced width */
+        height: 60px; /* Reduced height */
+    }
+
+    .profile-card, .courses-card, .stats-card, .links-card {
+        margin-bottom: 5px;
+    }
+
+    /* Arrow button styles */
+.arrow-button {
+    background-color: transparent;
+    border: none;
+    color: #126ee0;
+    font-size: 15px; /* Reduced font size */
+    cursor: pointer;
+}
+
+/* Arrow icon styles */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: #1f05ae;
+    transition: transform 0.3s ease;
+}
+}
+
+
+/* Adjust the margin of the main content to shift it to the right */
+.col-md-8 {
+    margin-left: auto;
+}
+
+/* Adjust the margin of the "Current Semester Courses and Grades" card to shift it to the right */
+.card.courses-card {
+    margin-left: auto;
+}
+
+/* Adjust the margin of the "Academic Performance" card to shift it to the right */
+.card.stats-card {
+    margin-left: auto;
+}
