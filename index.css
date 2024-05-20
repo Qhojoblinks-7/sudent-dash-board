@@ -1,0 +1,345 @@
+/* Custom Styles */
+body {
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+    background-color: #1f05ae;
+}
+
+header {
+    background-color: #ffc400;
+    color: #fff;
+    height: 100vh;
+    width: 120px;
+    position: fixed;
+    display: flex;
+    border-radius: 0px 50px 50px  0px   ;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transition: width 0.3s;
+}
+
+header .navbar-brand {
+    margin-bottom: 2px;
+}
+
+header .nav-item {
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    margin-bottom: 1vw;
+}
+
+header .nav-item a {
+    color: #1f05ae;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+header .nav-item a:hover {
+    background-color: #fcfcfc;
+}
+
+header .profile-pic {
+    width: 9vw;
+    height: 80px;
+    border-radius: 100%;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.time {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #ffc400;
+    color: #fff;
+    border-radius: 50px;
+    width: 5vw;
+    height: 9vh;
+}
+
+.time span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.main-content {
+    margin-left: 120px;
+    padding: 10px;
+    transition: margin-left 0.3s;
+}
+
+.card {
+    margin-bottom: 20px;
+    font-size: medium;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-right: 30px;
+}
+
+.progress {
+    height: 10px;
+    width: 100%;
+}
+
+#gpa, #cgpa {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.card-title {
+    text-align: center;
+    font-size: large;
+    width: 100%;
+    margin: 
+}
+
+
+
+.table-striped {
+    width: 100%;
+    border-collapse: collapse
+}
+
+.table-striped th, .table-striped td {
+    padding: 8px;
+    text-align: left;
+}
+
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(80, 65, 175, 0.05);
+}
+
+.card-header {
+    background-color: #ffc400;
+    margin-top: -17.5px;
+    margin-left: -18px;
+    margin-right: -18px;
+}
+
+/* Ensure sidebar is full height and fixed */
+@media (min-width: 768px) {
+    .navbar-nav {
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+        width: 15%;
+    }
+    main {
+        margin-left: 15%;
+    }
+
+    .time {
+        border-bottom: 50px;
+        border-radius: 50px;
+        width: 10vw;
+        height: 9vh;
+    }
+    
+    .time span {
+        display: inline-block;
+        margin-left: 5px;
+
+    }
+}
+
+.gpa-card{
+    width: 50%;
+
+}
+
+/* Transparent scrollbar */
+/* For Firefox */
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent; /* Make scrollbar transparent */
+}
+
+/* For Chrome, Edge, and Safari */
+body::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Adjust transparency as needed */
+}
+
+/* For Firefox */
+body::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Adjust transparency as needed */
+}
+
+/* Media queries for medium tablets (9 to 11 inches) */
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+
+    .profile-card, .courses-card, .stats-card, .links-card {
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        width: 10vw;
+    }
+
+    .gpa-card{
+        width: 50%;
+    
+    }
+}
+
+
+#past{
+    height: 47vh;
+    text-align: center;
+}
+
+/* Media queries for large tablets (12 inches and above) */
+@media screen and (min-width: 1201px) {
+    html {
+        font-size: 20px;
+    }
+
+    .profile-card, .courses-card, .stats-card, .links-card {
+        margin-bottom: 25px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Additional styles for screens with a minimum width of 584px */
+@media screen and (min-width: 584px) {
+    button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        margin: 5px 0;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    .header-img {
+        margin-left: -5%;
+        border-radius: 50%;
+        width: 20%;
+        max-width: 100px;
+        height: auto;
+    }
+
+    .gpa-card{
+        width: 30%;
+        font-size: 1.5rem;
+    }
+}
+
+/* Media queries for screens with a maximum width of 400px */
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 12px;
+    }
+
+    .navbar-title {
+        font-size: 0.8rem;
+    }
+
+    button {
+        font-size: 0.6rem; /* Even smaller font size for extra small screens */
+        padding: 3px 6px; /* Reduced padding for extra small screens */
+        margin: 3px 0; /* Reduced margin for extra small screens */
+    }
+
+    .header-img {
+        margin-left: -5%;
+        border-radius: 50%;
+        width: 20%;
+        max-width: 100px;
+        height: auto;
+    }
+
+    .profile-card, .courses-card, .stats-card, .links-card {
+        margin-bottom: 5px;
+    }
+
+    .gpa-card{
+        width: 30%;
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Media queries for responsive header */
+@media screen and (max-width: 768px) {
+    header {
+        width: 80px;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    header .nav-item {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    header .profile-pic {
+        width: 40%;
+        height: 60px;
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    header .nav-item {
+        font-size: 0.6rem;
+        padding: 4px;
+    }
+
+    header .profile-pic {
+        width: 30%;
+        height: 50px;
+    }
+}
+
+footer {
+    background-color: #1f05ae;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size:small;
+    margin-top: 20px; /* Space between the form and footer */
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social-media i {
+    font-size: 24px; /* Adjust icon size as needed */
+}

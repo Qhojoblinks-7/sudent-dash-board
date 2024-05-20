@@ -7,14 +7,124 @@ body {
 
 h1 {
     font-size: 2rem;
-    text-align: center;
 }
 
 p {
     font-size: 1.2rem;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Adjust height as needed */
+    max-width: 700px;
+    margin: 70px auto; /* Adjusted margin for form */
+    padding: 30px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
+}
 
+.form-group {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+    display: block;
+    padding: 4px;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 2em;
+    max-width: 700px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ffc400;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"] {
+    width: 50%;
+    height: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .navbar-title {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.7rem; /* Smaller font size for buttons */
+        padding: 4px 8px; /* Reduced padding for smaller screens */
+        margin: 4px 0; /* Reduced margin */
+    }
+
+    .header-img {
+        margin-left: -5%;
+        border-radius: 50%;
+        width: 20%;
+        max-width: 100px;
+        height: auto;
+    }
+}
+
+/* Footer styles */
+footer {
+    background-color: #1f05ae;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px; /* Space between the form and footer */
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social-media i {
+    font-size: 24px; /* Adjust icon size as needed */
+}
+
+p {
+    margin-top: 10px;
+}
 
 /* Cards */
 .profile-card, .courses-card, .stats-card, .links-card {
@@ -74,16 +184,16 @@ button {
 }
 
 button.btn-primary {
-    background-color:#1f05ae;
+    background-color: #007bff;
     border-color: #007bff;
     color: white;
 }
 
 /* Arrow button styles */
 .arrow-button {
-    background-color:#1f05ae;
+    background-color: transparent;
     border: none;
-    color:#fff;
+    color: #126ee0;
     font-size: 1rem; /* Smaller font size for arrow buttons */
     cursor: pointer;
 }
@@ -153,6 +263,14 @@ main {
     box-shadow: 0 2px 4px rgb(255, 255, 255);
 }
 
+/* Media queries for larger screens */
+@media screen and (min-width: 768px) {
+    button {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+    }
+}
+
 /* Media queries for smaller screens */
 @media screen and (max-width: 768px) {
     html {
@@ -177,40 +295,6 @@ main {
         height: auto;
     }
 }
-
-/* Footer styles */
-footer {
-    background-color: #1f05ae;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    margin-top: 20px; /* Space between the form and footer */
-}
-
-.footer-links {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.social-media a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.social-media i {
-    font-size: 24px; /* Adjust icon size as needed */
-}
-
-p {
-    margin-top: 10px;
-}
-
 
 /* Media queries for medium tablets (9 to 11 inches) */
 @media screen and (min-width: 801px) and (max-width: 1200px) {
