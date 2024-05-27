@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Financial Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="WhatsApp_Image_2024-05-17_at_5.34.00_PM-removebg-preview.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #1f05ae;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content .section {
+            margin-bottom: 20px;
+        }
+
+        .content label {
+            font-weight: bold;
+        }
+
+        .content span {
+            float: right;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn-group .btn {
+            flex: 1;
+            margin: 0 5px;
+        }
+
+        .btn-group .btn-primary {
+            background-color: #1f05ae;
+            border-color: #1f05ae;
+        }
+
+        .btn-group .btn-primary:hover {
+            background-color: #1307fa;
+        }
+
+        .content p {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .message {
+            background-color: #f7d80e;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer button {
+            background-color: #1f05ae;
+            margin: 0 10px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fee Advice Sheet</h1>
+        </div>
+        <div class="content">
+            <div class="section">
+                <label>Student Name:</label>
+                <span id="studentName">Immanuel Quansah Eshun</span>
+            </div>
+            <div class="section">
+                <label>Nationality:</label>
+                <span id="nationality">Ghanaian (GHS)</span>
+            </div>
+            <div class="section">
+                <label>Total Tuition Fee:</label>
+                <span id="totalTuitionFee">₵24,787.00</span>
+            </div>
+            <div class="section">
+                <label>Scholarship:</label>
+                <span id="scholarship">No</span>
+            </div>
+            <div class="section">
+                <label>Total Amount Paid:</label>
+                <span id="totalAmountPaid">₵12,000.00</span>
+            </div>
+            <div class="section">
+                <label>Amount Left:</label>
+                <span id="amountLeft">₵12,787.00</span>
+            </div>
+            <div class="message">
+                <p id="registrationMessage">You should pay 100% of ₵24,787.00 to register.</p>
+                <p id="examPermitMessage">You must pay 100% of ₵24,787.00 to print exam permit.</p>
+            </div>
+            <div class="btn-group">
+                <button id="toggleSemester" class="btn btn-primary">Toggle Semester</button>
+                <button id="toggleYear" class="btn btn-primary">Toggle Year</button>
+                <button id="showBothSemesters" class="btn btn-primary">Show Both Semesters</button>
+            </div>
+        </div>
+        <div class="footer">
+            <button id="printExamPermit" class="btn btn-success">Print Exam Permit</button>
+            <button id="cancel" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        const transactions = {
+            '2024/2025': {
+                'first-semester': [
+                    { date: '2024-01-15', description: 'Tuition Fee', amount: 2000.00 },
+                    { date: '2024-01-25', description: 'Library Fee', amount: 50.00 },
+                    { date: '2024-02-10', description: 'Sports Fee', amount: 75.00 },
+                ],
+                'second-semester': [
+                    { date: '2024-06-10', description: 'Tuition Fee', amount: 2000.00 },
+                    { date: '2024-06-20', description: 'Laboratory Fee', amount: 150.00 },
+                    { date: '2024-07-05', description: 'Examination Fee', amount: 100.00 },
+                ]
+            },
+            '2023/2024': {
+                'first-semester': [
+                    { date: '2023-01-15', description: 'Tuition Fee', amount: 1900.00 },
+                    { date: '2023-01-25', description: 'Library Fee', amount: 40.00 },
+                    { date: '2023-02-10', description: 'Sports Fee', amount: 65.00 },
+                ],
+                'second-semester': [
+                    { date: '2023-06-10', description: 'Tuition Fee', amount: 1900.00 },
+                    { date: '2023-06-20', description: 'Laboratory Fee', amount: 140.00 },
+                    { date: '2023-07-05', description: 'Examination Fee', amount: 90.00 },
+                ]
+            },
+            // Add similar structures for other academic years
+        };
+
+        let currentSemester = 'first-semester';
+        let currentYear = '2024/2025';
+        let yearIndex = 0;
+        const years = ['2024/2025', '2023/2024', '2022/2023', '2021/2022'];
+
+        document.getElementById('toggleSemester').addEventListener('click', function() {
+            currentSemester = (currentSemester === 'first-semester') ? 'second-semester' : 'first-semester';
+            showReceipt(currentYear, currentSemester);
+        });
+
+        document.getElementById('toggleYear').addEventListener('click', function() {
+            yearIndex = (yearIndex + 1) % years.length;
+            currentYear = years[yearIndex];
+            showReceipt(currentYear, currentSemester);
+        });
+
+        document.getElementById('showBothSemesters').addEventListener('click', function() {
+            showBothSemesters(currentYear);
+        });
+
+        function showReceipt(year, semester) {
+            const transactionsForYear = transactions[year][semester];
+            let totalTuitionFee = 0;
+            let totalAmountPaid = 0;
+
+            transactionsForYear.forEach(transaction => {
+                totalTuitionFee += transaction.amount;
+                totalAmountPaid += transaction.amount; // Adjust logic for amount paid if needed
+            });
+
+            const amountLeft = totalTuitionFee - totalAmountPaid;
+
+            document.getElementById('totalTuitionFee').innerText = `₵${totalTuitionFee.toFixed(2)}`;
+            document.getElementById('totalAmountPaid').innerText = `₵${totalAmountPaid.toFixed(2)}`;
+            document.getElementById('amountLeft').innerText = `₵${amountLeft.toFixed(2)}`;
+            document.getElementById('registrationMessage').innerText = `You should pay 100% of ₵${totalTuitionFee.toFixed(2)} to register.`;
+            document.getElementById('examPermitMessage').innerText = `You must pay 100% of ₵${totalTuitionFee.toFixed(2)} to print exam permit.`;
+        }
+
+        function showBothSemesters(year) {
+            const firstSemesterTransactions = transactions[year]['first-semester'];
+            const secondSemesterTransactions = transactions[year]['second-semester'];
+
+            let totalTuitionFee = 0;
+            let totalAmountPaid = 0;
+
+            firstSemesterTransactions.concat(secondSemesterTransactions).forEach(transaction => {
+                totalTuitionFee += transaction.amount;
+                totalAmountPaid += transaction.amount; // Adjust logic for amount paid if needed
+            });
+
+            const amountLeft = totalTuitionFee - totalAmountPaid;
+
+            document.getElementById('totalTuitionFee').innerText = `₵${totalTuitionFee.toFixed(2)}`;
+            document.getElementById('totalAmountPaid').innerText = `₵${totalAmountPaid.toFixed(2)}`;
+            document.getElementById('amountLeft').innerText = `₵${amountLeft.toFixed(2)}`;
+            document.getElementById('registrationMessage').innerText = `You should pay 100% of ₵${totalTuitionFee.toFixed(2)} to register.`;
+            document.getElementById('examPermitMessage').innerText = `You must pay 100% of ₵${totalTuitionFee.toFixed(2)} to print exam permit.`;
+        }
+
+        // Initial display
+        showReceipt(currentYear, currentSemester);
+
+        document.getElementById('printExamPermit').addEventListener('click', function() {
+            alert('Exam permit printed successfully!');
+        });
+
+        document.getElementById('cancel').addEventListener('click', function() {
+            alert('Operation cancelled.');
+        });
+    </script>
+</body>
+</html>

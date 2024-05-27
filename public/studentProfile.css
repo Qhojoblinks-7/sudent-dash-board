@@ -1,0 +1,187 @@
+/* General Styles */
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-color: #1f05ae;
+    margin: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    color: #1f05ae;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20%;
+    border-bottom: 3px solid #f7d80e;
+}
+
+header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+header .header-content {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0;
+}
+
+/* Main Content Styles */
+.container {
+    margin-top: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 150px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    background-color: #f7d80e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-details {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.contact-info #contact , #contact{
+    text-align: left;
+    border-bottom: 2px solid #1f05ae;
+}
+
+.contact-info{
+    margin-bottom: 200px;
+}
+
+.profile-picture {
+    align-items: center;
+}
+
+img.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    align-items: center;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p , .course-info{
+    margin-bottom: 5px;
+    color:#1f05ae;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1f05ae;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.social-media i {
+    font-size: 24px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    
+    header img {
+        width: 15%;
+        height: 80%;
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        margin-top: 170px;
+        padding: 15px;
+    }
+    
+    .profile-info, .user-details, .course-info {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+
+    .profile-info {
+        display: ;
+        
+    }
+    
+    .contact-info{
+        font-size: 0.8rem;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    .course-info{
+        color:#1f05ae;
+        margin-left: 10px;
+    }
+
+    .profile-picture{
+        margin:auto 150px auto ;
+        align-items: center;
+    }
+
+    #contact{
+        font-size: 0.8rem;
+        border-width: 10%;
+        border-bottom: 2px solid #1f05ae;
+    }
+}

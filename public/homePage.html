@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="WhatsApp_Image_2024-05-17_at_5.34.00_PM-removebg-preview.png" type="image/png">
+    <style>
+        body {
+            background-color: #1f05ae;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #1f05ae;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 3px solid #f7d80e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 250px;
+        }
+
+        header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        header .header-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        header p {
+            margin: 0;
+        }
+
+        .container {
+            margin-top: 150px;
+            margin-bottom: 150px;
+            flex: 1;
+            padding-top: 140px; /* Adjust padding to account for fixed header */
+        }
+
+        .form-container {
+            background-color: #fff;
+            color: #000;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .toggle-link {
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #1f05ae;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-media a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="WhatsApp_Image_2024-05-17_at_5.34.00_PM-removebg-preview.png" alt="Logo">
+        <div class="header-content">
+            <h1>ACCRA TECHNICAL UNIVERSITY</h1>
+            <p>Welcome! Enjoy your stay.</p>
+        </div>
+    </header>
+    <div class="container">
+        <div id="auth-section" class="form-container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email address</label>
+                    <input type="email" class="form-control" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" class="form-control" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="mt-2">Don't have an account? <span id="show-signup" class="toggle-link">Sign up</span></p>
+            </form>
+        </div>
+
+        <div id="signup-section" class="form-container" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" class="form-control" id="full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" id="department" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <input type="text" class="form-control" id="course" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="student-id">Student ID</label>
+                    <input type="text" class="form-control" id="student-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <p class="mt-2">Already have an account? <span id="show-login" class="toggle-link">Login</span></p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 Blinks Graphics and Web Design. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const authSection = document.getElementById("auth-section");
+            const signupSection = document.getElementById("signup-section");
+            const showSignup = document.getElementById("show-signup");
+            const showLogin = document.getElementById("show-login");
+    
+            showSignup.addEventListener("click", function(event) {
+                event.preventDefault();
+                authSection.style.display = "none";
+                signupSection.style.display = "block";
+            });
+    
+            showLogin.addEventListener("click", function(event) {
+                event.preventDefault();
+                signupSection.style.display = "none";
+                authSection.style.display = "block";
+            });
+    
+            document.getElementById("login-form").addEventListener("submit", async function(event) {
+                event.preventDefault();
+                const email = document.getElementById("login-email").value;
+                const password = document.getElementById("login-password").value;
+    
+                try {
+                    const response = await fetch('http://localhost:3000/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email, password })
+                    });
+    
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert(data.message);
+                        window.location.href = "studentDashboard.html"; // Redirect to the student dashboard
+                    } else {
+                        alert(data.error);
+                    }
+                } catch (error) {
+                    alert('Error logging in');
+                }
+            });
+    
+            document.getElementById("signup-form").addEventListener("submit", async function(event) {
+                event.preventDefault();
+                const fullName = document.getElementById("full-name").value;
+                const department = document.getElementById("department").value;
+                const course = document.getElementById("course").value;
+                const email = document.getElementById("email").value;
+                const studentId = document.getElementById("student-id").value;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+    
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+    
+                try {
+                    const response = await fetch('http://localhost:3000/api/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ fullName, department, course, email, studentId, password })
+                    });
+    
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert(data.message);
+                        window.location.href = "studentDashboard.html"; // Redirect to the student dashboard
+                    } else {
+                        alert(data.error);
+                    }
+                } catch (error) {
+                    alert('Error signing up');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

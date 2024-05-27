@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Complaints</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .complaint-form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Submit a Complaint</h1>
+        <form id="complaint-form" class="complaint-form">
+            <div class="form-group">
+                <label for="complaint">Complaint:</label>
+                <textarea class="form-control" id="complaint" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <h3>My Complaints</h3>
+        <ul class="list-group" id="complaints-list"></ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch and display complaints
+            function loadComplaints() {
+                // Dummy data for complaints
+                const dummyComplaints = [
+                    { complaint: "The internet connection in the library is too slow." },
+                    { complaint: "The cafeteria food quality needs improvement." },
+                    { complaint: "There are not enough study spaces in the student lounge." }
+                ];
+
+                let complaintsList = '';
+                dummyComplaints.forEach(complaint => {
+                    complaintsList += `<li class="list-group-item">${complaint.complaint}</li>`;
+                });
+                $('#complaints-list').html(complaintsList);
+            }
+
+            // Submit complaint form
+            $('#complaint-form').on('submit', function(event) {
+                event.preventDefault();
+                const complaint = $('#complaint').val();
+                alert('Complaint submitted: ' + complaint); // Dummy alert for demonstration
+                $('#complaint').val(''); // Clear input field
+                loadComplaints(); // Refresh complaints list (not necessary with actual data)
+            });
+
+            // Load complaints when the page is ready
+            loadComplaints();
+        });
+    </script>
+</body>
+</html>

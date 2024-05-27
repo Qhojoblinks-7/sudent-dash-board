@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Evaluation</title>
+    <link rel="icon" href="WhatsApp_Image_2024-05-17_at_5.34.00_PM-removebg-preview.png" type="image/png">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    color: #1f05ae;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20%;
+    border-bottom: 3px solid #f7d80e;
+    margin-bottom: 0px;
+}
+
+
+
+header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+header .header-content {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #1f05ae;
+}
+
+.lecturer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.lecturer img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.lecturer-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.question .form-check {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question .form-check input {
+    margin-left: 10px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color:rgb(10, 140, 239);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-group .btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #1f05ae;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-group .btn:hover {
+    background-color: #1307fa;
+}
+
+    </style>
+</head>
+<header>
+    <img src="WhatsApp_Image_2024-05-17_at_5.34.00_PM-removebg-preview.png" alt="school logo">
+    <div class="header-content">
+        <h1>ACCRA TECHNICAL UNIVERSITY</h1>
+        <div class="header">
+            <h1>Lecturer Evaluation</h1>
+        </div>
+    </div>
+    <a href="studentDashboard.html" class="btn btn-primary">Back to Dashboard</a>
+</header>
+<body>
+    <div class="container">
+        
+        <form id="evaluationForm">
+            <div class="lecturer" id="lecturer">
+                <img src="lecturer1.jpg" alt="Lecturer 1" id="lecturerImage">
+                <div class="lecturer-name" id="lecturerName">Dr. John Smith</div>
+            </div>
+            <div class="questions">
+                <!-- Repeat the question block for each question (10 questions total) -->
+                <div class="question">
+                    <label>1. How well did the lecturer explain the topics?</label>
+                    <div class="form-check">
+                        <input type="radio" name="question1" value="1"> 1
+                        <input type="radio" name="question1" value="2"> 2
+                        <input type="radio" name="question1" value="3"> 3
+                        <input type="radio" name="question1" value="4"> 4
+                        <input type="radio" name="question1" value="5"> 5
+                        <input type="radio" name="question1" value="6"> 6
+                        <input type="radio" name="question1" value="7"> 7
+                        <input type="radio" name="question1" value="8"> 8
+                        <input type="radio" name="question1" value="9"> 9
+                        <input type="radio" name="question1" value="10"> 10
+                    </div>
+                </div>
+                <!-- Add the remaining questions similarly -->
+                <!-- Questions 2 to 10 omitted for brevity -->
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn">Submit</button>
+                <button type="button" class="btn" id="nextLecturer">Next Lecturer</button>
+                <button type="button" class="btn" id="dashboard">Dashboard</button>
+            </div>
+        </form>
+    </div>
+    <script >
+    let currentLecturerIndex = 0;
+let lecturers = [];
+
+// Fetch lecturers from the server
+async function fetchLecturers() {
+    const response = await fetch('/api/lecturers', {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+    lecturers = await response.json();
+    loadLecturer();
+}
+
+// Load the current lecturer's information
+function loadLecturer() {
+    if (lecturers.length === 0) return;
+    const lecturer = lecturers[currentLecturerIndex];
+    document.getElementById('lecturerImage').src = lecturer.image;
+    document.getElementById('lecturerName').textContent = lecturer.name;
+    document.getElementById('evaluationForm').reset();
+}
+
+// Handle form submission
+document.getElementById('evaluationForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const responses = [
+        formData.get('question1'),
+        formData.get('question2'),
+        formData.get('question3'),
+        formData.get('question4'),
+        formData.get('question5'),
+        formData.get('question6'),
+        formData.get('question7'),
+        formData.get('question8'),
+        formData.get('question9'),
+        formData.get('question10')
+    ];
+
+    const data = {
+        lecturerId: lecturers[currentLecturerIndex]._id,
+        responses: responses.map(Number)
+    };
+
+    await fetch('/api/submit-evaluation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (currentLecturerIndex < lecturers.length - 1) {
+        currentLecturerIndex++;
+        loadLecturer();
+    } else {
+        window.location.href = 'thankyou.html';
+    }
+});
+
+// Navigate to the next lecturer
+document.getElementById('nextLecturer').addEventListener('click', function () {
+    if (currentLecturerIndex < lecturers.length - 1) {
+        currentLecturerIndex++;
+        loadLecturer();
+    }
+});
+
+// Navigate to the dashboard
+document.getElementById('dashboard').addEventListener('click', function () {
+    window.location.href = 'studentDashboard.html';
+});
+
+// Initial fetch of lecturers
+window.onload = fetchLecturers;
+    </script>
+</body>
+</html>

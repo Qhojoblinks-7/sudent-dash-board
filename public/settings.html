@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Settings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            color: #fff;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="studentDashboard.html">Student Dashboard</a>
+        <div class="ml-auto">
+            <button class="btn btn-outline-light" id="sign-out-btn"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="my-4 text-center">Settings</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">Profile Settings</div>
+                    <div class="card-body">
+                        <form id="profile-form">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <input type="text" class="form-control" id="department" placeholder="Enter your department">
+                            </div>
+                            <div class="form-group">
+                                <label for="course">Course</label>
+                                <input type="text" class="form-control" id="course" placeholder="Enter your course">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="studentId">Student ID</label>
+                                <input type="text" class="form-control" id="studentId" placeholder="Enter your student ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Account Settings</div>
+                    <div class="card-body">
+                        <button class="btn btn-secondary btn-block" id="change-password-btn">Change Password</button>
+                        <button class="btn btn-danger btn-block" id="delete-account-btn">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const apiUrl = '/api'; // Adjust according to your API endpoint
+
+            function getToken() {
+                return localStorage.getItem('token');
+            }
+
+            function loadProfile() {
+                $.ajax({
+                    url: `${apiUrl}/profile`,
+                    method: 'GET',
+                    headers: { Authorization: `Bearer ${getToken()}` },
+                    success: function(user) {
+                        $('#fullName').val(user.fullName);
+                        $('#department').val(user.department);
+                        $('#course').val(user.course);
+                        $('#email').val(user.email);
+                        $('#studentId').val(user.studentId);
+                    }
+                });
+            }
+
+            loadProfile();
+
+            $('#profile-form').on('submit', function(event) {
+                event.preventDefault();
+                const profileData = {
+                    fullName: $('#fullName').val(),
+                    department: $('#department').val(),
+                    course: $('#course').val(),
+                    email: $('#email').val(),
+                    studentId: $('#studentId').val(),
+                    password: $('#password').val()
+                };
+
+                $.ajax({
+                    url: `${apiUrl}/profile`,
+                    method: 'PUT',
+                    headers: { Authorization: `Bearer ${getToken()}` },
+                    data: profileData,
+                    success: function(response) {
+                        alert('Profile updated successfully!');
+                    },
+                    error: function(response) {
+                        alert('Failed to update profile.');
+                    }
+                });
+            });
+
+            $('#change-password-btn').on('click', function() {
+                const newPassword = prompt('Enter new password:');
+                if (newPassword) {
+                    $.ajax({
+                        url: `${apiUrl}/change-password`,
+                        method: 'PUT',
+                        headers: { Authorization: `Bearer ${getToken()}` },
+                        data: { password: newPassword },
+                        success: function(response) {
+                            alert('Password changed successfully!');
+                        },
+                        error: function(response) {
+                            alert('Failed to change password.');
+                        }
+                    });
+                }
+            });
+
+            $('#delete-account-btn').on('click', function() {
+                if (confirm('Are you sure you want to delete your account?')) {
+                    $.ajax({
+                        url: `${apiUrl}/delete-account`,
+                        method: 'DELETE',
+                        headers: { Authorization: `Bearer ${getToken()}` },
+                        success: function(response) {
+                            alert('Account deleted successfully!');
+                            localStorage.removeItem('token');
+                            window.location.href = 'homePage.html';
+                        },
+                        error: function(response) {
+                            alert('Failed to delete account.');
+                        }
+                    });
+                }
+            });
+
+            $('#sign-out-btn').on('click', function() {
+                localStorage.removeItem('token');
+                alert('Signed out successfully!');
+                window.location.href = 'homePage.html';
+            });
+        });
+    </script>
+</body>
+</html>

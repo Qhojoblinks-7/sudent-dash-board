@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Center</title>
+    <link rel="icon" href="WhatsApp_Image_2024-05-17_at_5.34.00_PM-removebg-preview.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .list-group {
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            background-color: #f1f1f1; /* Light gray background on hover */
+        }
+
+        .row {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        .book-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px); /* Lift up on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow on hover */
+        }
+
+        .book-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .book-card h5 {
+            margin: 20px 0 10px;
+        }
+
+        .book-card p {
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            width: 100%;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Library Center</h1>
+        <div id="categories">
+            <h3>Categories</h3>
+            <ul class="list-group" id="categories-list">
+                <!-- Categories will be dynamically populated -->
+            </ul>
+        </div>
+        <div id="new-arrivals">
+            <h3>New Arrivals</h3>
+            <div class="row" id="new-arrivals-list">
+                <!-- New arrivals will be dynamically populated -->
+            </div>
+        </div>
+        <div id="popular-books">
+            <h3>Popular Books</h3>
+            <div class="row" id="popular-books-list">
+                <!-- Popular books will be dynamically populated -->
+            </div>
+        </div>
+        <div id="search-section">
+            <h3>Search Books</h3>
+            <form id="search-form">
+                <input type="text" id="search-query" placeholder="Search books..." class="form-control">
+                <button type="submit" class="btn btn-primary mt-2">Search</button>
+            </form>
+            <div class="row" id="search-results">
+                <!-- Search results will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>

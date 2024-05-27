@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .faq {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .faq h5 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .faq p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Frequently Asked Questions</h1>
+        <div id="faqs-list"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    // Dummy FAQ Data
+    const dummyFAQs = [
+        {
+            question: "What is Lorem Ipsum?",
+            answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+            question: "Why do we use it?",
+            answer: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        },
+        {
+            question: "Where does it come from?",
+            answer: "Contrary to popular belief, Lorem Ipsum is not simply random text."
+        }
+    ];
+
+    function loadFAQs() {
+        let faqsHtml = '';
+        dummyFAQs.forEach(faq => {
+            faqsHtml += `
+                <div class="faq">
+                    <div class="faq-question">${faq.question}</div>
+                    <div class="faq-answer">${faq.answer}</div>
+                </div>
+            `;
+        });
+        $('#faqs-list').html(faqsHtml);
+    }
+
+    loadFAQs();
+});
+
+    </script>
+</body>
+</html>
