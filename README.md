@@ -1,7 +1,9 @@
 ---
+Sure, here is the updated README that includes the additional features and pages you mentioned:
+
+---
 
 # Student Dashboard Application
----
 
 This project aims to create a comprehensive student dashboard tailored for use at Accra Technical University. The dashboard provides students with essential information regarding their current courses, grades, academic performance, and access to important school resources. It's primarily developed to enhance my industry experience and serve as a personal project.
 
@@ -13,11 +15,12 @@ This project aims to create a comprehensive student dashboard tailored for use a
 - **Academic Performance**: Provides a graphical representation of the student's academic performance.
 - **School Resources**: Offers links to various resources such as newsletters, announcements, reports, library, classes, and more.
 - **Frequently Asked Questions (FAQs)**: Provides answers to common questions students may have.
-- **Complaints System**: Allows students to submit complaints and view replies.
-- **Notifications**: Displays notifications related to the student's activities.
-- **Virtual Library**: Provides access to the library's resources and allows book borrowing and returning.
-- **Replies**: Enables students to reply to complaints.
-- **Financial Management**: Manages and displays financial information for the students.
+- **Complaints**: Allows students to submit complaints and view replies.
+- **Notifications**: Displays notifications for the student.
+- **Virtual Library**: Provides access to books and other resources.
+- **Replies**: Allows students to reply to complaints and view replies.
+- **Financial Management**: Helps students manage their financial transactions and records.
+- **User Authentication**: Includes a homepage for user login and registration.
 
 ## Technology Stack
 
@@ -36,11 +39,11 @@ This project aims to create a comprehensive student dashboard tailored for use a
 
 1. Clone this repository to your local machine:
    ```sh
-   git clone https://github.com/yourusername/student-dashboard.git
+   git clone https://github.com/yourusername/sudent-dash-board.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd student-dashboard
+   cd sudent-dash-board
    ```
 3. Install dependencies using npm:
    ```sh
@@ -55,7 +58,10 @@ This project aims to create a comprehensive student dashboard tailored for use a
    ```sh
    node seedFaqs.js
    ```
-
+or
+```sh
+node server1.js
+```
 ### Running the Application
 
 1. Start the server:
@@ -66,25 +72,19 @@ This project aims to create a comprehensive student dashboard tailored for use a
 
 ## Project Structure
 
-- **/public**: Contains static files such as images and client-side JavaScript.
-  - **faqs.js**: Handles loading and displaying FAQs.
-  - **complaints.js**: Manages complaint submissions and displaying replies.
-  - **notifications.js**: Handles fetching and displaying notifications.
-  - **virtualLibrary.js**: Manages library resources, borrowing, and returning books.
-  - **replies.js**: Handles replies to complaints.
-  - **studentDashboard.js**: Manages the main dashboard functionalities.
-  - **financialManagement.js**: Manages and displays financial information.
+- **/public**: Contains static files such as images, CSS, and client-side JavaScript.
+  - **/public/css**: Contains CSS files for styling various pages.
+  - **/public/js**: Contains JavaScript files for various functionalities.
+  - **/public/homePage.html**: Home page for user authentication.
+  - **/public/studentDashboard.html**: Main dashboard for students.
+  - **/public/complaints.html**: Page for submitting and viewing complaints.
+  - **/public/notifications.html**: Page for viewing notifications.
+  - **/public/virtualLibrary.html**: Page for accessing the virtual library.
+  - **/public/financialManagement.html**: Page for managing financial records.
+  - **/public/replies.html**: Page for viewing and adding replies.
 - **/routes**: Defines route handlers for various API endpoints.
 - **/models**: Contains Mongoose models for interacting with MongoDB.
-- **/views**: Contains HTML files for rendering the frontend of the application.
-  - **faqs.html**: FAQ page.
-  - **complaints.html**: Complaints submission and viewing page.
-  - **notifications.html**: Notifications page.
-  - **virtualLibrary.html**: Virtual library page.
-  - **replies.html**: Replies to complaints page.
-  - **studentDashboard.html**: Main student dashboard.
-  - **financialManagement.html**: Financial management page.
-- **server.js**: Entry point for the Node.js server.
+- **server1.js**: Entry point for the Node.js server.
 - **seedFaqs.js**: Script to seed the database with initial FAQ data.
 
 ## Contributing
@@ -107,4 +107,5 @@ This project is developed independently as a personal endeavor to gain industry 
 
 ---
 
-By following these updated instructions, you should be able to set up and run the student dashboard application successfully, complete with the new pages and features.
+By following these updated instructions, you should be able to set up and run the student dashboard application successfully, complete with the new features and pages.
+---
