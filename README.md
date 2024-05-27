@@ -1,9 +1,7 @@
 ---
-Sure, here is the updated README that includes the additional features and pages you mentioned:
-
----
 
 # Student Dashboard Application
+---
 
 This project aims to create a comprehensive student dashboard tailored for use at Accra Technical University. The dashboard provides students with essential information regarding their current courses, grades, academic performance, and access to important school resources. It's primarily developed to enhance my industry experience and serve as a personal project.
 
